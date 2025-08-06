@@ -11,8 +11,5 @@ class Solution(object):
                 sort_dict[sorted_wrd].append(wrd)
             else:
                 sort_dict[sorted_wrd] = [wrd]
-        ret_list = []
-        for key in sort_dict:
-            ret_list.append(sort_dict[key])
-        return ret_list
+        return list(sort_dict.values())
         
