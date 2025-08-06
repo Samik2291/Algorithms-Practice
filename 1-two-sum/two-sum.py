@@ -6,8 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         nums_dict = {}
-        for index in range(len(nums)):
-            goal = target - nums[index]
-            if goal in nums_dict:
-                return [nums_dict[goal], index]
-            nums_dict[nums[index]] = index
+        for index, num in enumerate(nums):
+            if target - num in nums_dict:
+                return [nums_dict[target - num], index]
+            nums_dict[num] = index
