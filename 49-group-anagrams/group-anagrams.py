@@ -6,7 +6,7 @@ class Solution(object):
         """
         sort_dict = {}
         for wrd in strs:
-            sorted_wrd = "".join(sorted(list(wrd)))
+            sorted_wrd = "".join(sorted(wrd))
             if sorted_wrd in sort_dict:
                 sort_dict[sorted_wrd].append(wrd)
             else:
