@@ -5,22 +5,24 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        freq_dict = {}
+        num_to_freq = {}
         for num in nums:
-            if num in freq_dict:
-                freq_dict[num] += 1
+            if num in num_to_freq:
+                num_to_freq[num] += 1
             else:
-                freq_dict[num] = 1
-        vals = freq_dict.values()
-        max_lst = []
-        for _ in range(k):
-            max_lst.append(max(vals))
-            vals.pop(vals.index(max(vals)))
-        ret_lst = []
-        for key in freq_dict:
-            if freq_dict[key] in max_lst:
-                ret_lst.append(key)
-        return ret_lst
+                num_to_freq[num] = 1
 
+        freq_to_num = {}
+        for num in num_to_freq:
+            freq = num_to_freq[num]
+            if freq in freq_to_num:
+                freq_to_num[freq].append(num)
+            else:
+                freq_to_num[freq] = [num]
 
+        freq_lst = []
+        for freq in range(len(nums), 0, -1):
+            if freq in freq_to_num.keys():
+                freq_lst.extend(freq_to_num[freq])
         
+        return freq_lst[:k]
