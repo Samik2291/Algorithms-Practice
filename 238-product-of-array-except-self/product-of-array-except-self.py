@@ -6,9 +6,9 @@ class Solution(object):
         """
         prev_prod = {}
         prod = 1
-        for index, num in enumerate(nums):
+        for index in range(len(nums)):
             prev_prod[index] = prod
-            prod *= num
+            prod *= nums[index]
         after_prod = {}
         prod = 1
         for index in range(len(nums)-1, -1, -1):
