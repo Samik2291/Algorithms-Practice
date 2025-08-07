@@ -1,10 +1,6 @@
 class Solution(object):
     def topKFrequent(self, nums, k):
         """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[int]
-        """
         num_to_freq = {}
         for num in nums:
             if num in num_to_freq:
@@ -24,7 +20,17 @@ class Solution(object):
         for freq in range(len(nums), 0, -1):
             if freq in freq_to_num:
                 freq_lst.extend(freq_to_num[freq])
-            #if len(freq_lst) == k:
-                #return freq_lst
         
         return freq_lst[:k]
+        """
+        frq = defaultdict(list)
+        for key, cnt in Counter(nums).items():
+            frq[cnt].append(key)
+
+        res = []
+        for times in reversed(range(len(nums) + 1)):
+            res.extend(frq[times])
+            if len(res) >= k: return res[:k]
+
+        return res[:k]
+        
