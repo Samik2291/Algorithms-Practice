@@ -24,5 +24,7 @@ class Solution(object):
         for freq in range(len(nums), 0, -1):
             if freq in freq_to_num:
                 freq_lst.extend(freq_to_num[freq])
+            if len(freq_lst) == k:
+                return freq_lst
         
         return freq_lst[:k]
