@@ -22,7 +22,7 @@ class Solution(object):
 
         freq_lst = []
         for freq in range(len(nums), 0, -1):
-            if freq in freq_to_num.keys():
+            if freq in freq_to_num:
                 freq_lst.extend(freq_to_num[freq])
         
         return freq_lst[:k]
