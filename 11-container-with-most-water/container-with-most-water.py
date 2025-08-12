@@ -4,11 +4,10 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        area_lst = []
-        start = 0
-        end = len(height) - 1
+        area = 0
+        start, end = 0, len(height) - 1
         while start < end:
-            area_lst.append(min(height[start], height[end]) * (end - start))
+            area = max((min(height[start], height[end]) * (end - start)), area)
             if height[start] > height[end]:
                 end -= 1
             elif height[start] < height[end]:
@@ -16,7 +15,7 @@ class Solution(object):
             else:
                 start += 1
                 end -= 1
-        return max(area_lst)
+        return area
 
 
         
