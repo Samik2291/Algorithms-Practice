@@ -4,12 +4,14 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        max_len, sub = 0, []
+        max_len, left, sub = 0, 0, set()
         for char in s:
-            sub.append(char)
-            sub_set = set(sub)
-            if len(sub) != len(sub_set):
-                max_len = max(max_len, len(sub_set))
-                index = sub.index(char) + 1
-                sub = sub[index:]
+            sub_len = len(sub)
+            sub.add(char)
+            if len(sub) == sub_len:
+                max_len = max(max_len, len(sub))
+                while s[left] != char:
+                    sub.remove(s[left])
+                    left += 1
+                left += 1
         return max(max_len, len(sub))
