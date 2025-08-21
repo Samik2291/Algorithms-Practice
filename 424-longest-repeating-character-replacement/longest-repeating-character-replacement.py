@@ -8,10 +8,11 @@ class Solution(object):
         freq_dict = defaultdict(int)
         left = 0
         ret = 0
-        for right in range(len(s)):
-            freq_dict[s[right]] += 1
+        max_freq = 0
+        for right, val in enumerate(s):
+            freq_dict[val] += 1
+            max_freq = max(max_freq, freq_dict[val])
             curr_len = right - left + 1
-            max_freq = max(freq_dict.values())
             if curr_len - max_freq > k:
                 freq_dict[s[left]] -= 1
                 left += 1
