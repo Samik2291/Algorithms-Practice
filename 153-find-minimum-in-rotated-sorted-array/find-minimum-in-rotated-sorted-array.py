@@ -4,5 +4,5 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        return min(nums)
+        return sorted(nums)[0]
         
