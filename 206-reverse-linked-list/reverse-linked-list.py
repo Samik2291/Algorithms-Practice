@@ -13,7 +13,7 @@ class Solution(object):
             return prev
         next = head.next
         head.next = prev
-        prev = head
-        head = next
-        return self.reverseList(head, prev)
+        #prev = head
+        #head = next
+        return self.reverseList(next, head)
         
