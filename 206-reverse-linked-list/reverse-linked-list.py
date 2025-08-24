@@ -4,17 +4,16 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def reverseList(self, head):
+    def reverseList(self, head, prev = None):
         """
         :type head: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        prev = None
-        curr = head
-        while curr:
-            next = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next
-        return prev
+        if not head:
+            return prev
+        next = head.next
+        head.next = prev
+        prev = head
+        head = next
+        return self.reverseList(head, prev)
         
