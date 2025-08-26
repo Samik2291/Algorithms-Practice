@@ -11,29 +11,19 @@ class Solution(object):
         :rtype: Optional[ListNode]
         """
         track_list = []
-        while list1 or list2:
-            if not list1:
-                track_list.append(list2)
-                list2 = list2.next
-                continue
-            elif not list2:
-                track_list.append(list1)
-                list1 = list1.next
-                continue
-
+        start = pointer = ListNode()
+        while list1 and list2:
             if list1.val <= list2.val:
-                track_list.append(list1)
+                pointer.next = list1
                 list1 = list1.next
             else:
-                track_list.append(list2)
+                pointer.next = list2
                 list2 = list2.next
-        ret = None
-        if track_list:
-            for node in reversed(track_list):
-                #print node
-                next = ret
-                ret = node
-                ret.next = next
-        return ret
+            pointer = pointer.next
+        if list1:
+            pointer.next = list1
+        elif list2:
+            pointer.next = list2
+        return start.next
         
         
