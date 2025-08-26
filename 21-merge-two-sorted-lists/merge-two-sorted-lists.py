@@ -20,8 +20,7 @@ class Solution(object):
                 pointer.next = list2
                 list2 = list2.next
             pointer = pointer.next
-        if list1 or list2:
-            pointer.next = list1 or list2
+        pointer.next = list1 or list2
         return start.next
         
         
