@@ -29,7 +29,6 @@ class Solution(object):
             '''
             first.next, first = reverse, first.next
             reverse.next, reverse = first, reverse.next
-        return
             
 
             
