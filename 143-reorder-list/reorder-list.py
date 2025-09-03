@@ -26,6 +26,7 @@ class Solution(object):
             first.next = reverse
             first = first.next.next
             reverse = reverse_next
+        return
             
 
             
