@@ -11,8 +11,7 @@ class Solution(object):
         """
         slow = fast = head
         while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+            slow, fast = slow.next, fast.next.next
         
         reverse, mid = None, slow
         while mid:
