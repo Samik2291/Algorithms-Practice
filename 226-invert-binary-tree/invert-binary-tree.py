@@ -10,8 +10,7 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: Optional[TreeNode]
         """
-        if root:
-            self.invert(root)
+        self.invert(root)
         return root
 
     def invert(self, root):
