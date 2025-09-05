@@ -15,17 +15,7 @@ class Solution(object):
         return root
 
     def invert(self, root):
-        try:
+        if root:
             root.right, root.left = root.left, root.right
             self.invert(root.right)
             self.invert(root.left)
-        except:
-            try:
-                root.left, root.right = root.right, None
-                self.invert(root.left)
-            except:
-                try:
-                    root.left, root.right = None, root.left
-                    self.invert(root.left)
-                except:
-                    pass
