@@ -5,8 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        nums_dict = {}
+        num_dict = {}
         for index, num in enumerate(nums):
-            if target - num in nums_dict:
-                return [nums_dict[target - num], index]
-            nums_dict[num] = index
+            diff = target - num
+            if diff in num_dict:
+                return [index, num_dict[diff]]
+            num_dict[num] = index
+        print(num_dict)
