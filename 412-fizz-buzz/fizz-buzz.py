@@ -6,7 +6,6 @@ class Solution(object):
         """
         ret = []
         for i in range(n):
-            print(i)
             num = i + 1
             if num % 3 == 0 and num % 5 == 0:
                 ret.append("FizzBuzz")
