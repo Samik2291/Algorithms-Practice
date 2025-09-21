@@ -11,4 +11,3 @@ class Solution(object):
             if diff in num_dict:
                 return [index, num_dict[diff]]
             num_dict[num] = index
-        print(num_dict)
